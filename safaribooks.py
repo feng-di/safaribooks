@@ -339,6 +339,7 @@ class SafariBooks:
         self.check_login()
 
         self.book_id = args.bookid
+        self.asset = args.asset
         self.api_url = self.API_TEMPLATE.format(self.book_id)
 
         self.display.info("Retrieving book info...")
@@ -882,11 +883,15 @@ class SafariBooks:
             # response = self.requests_provider("https://learning.oreilly.com/api/v2/epubs/urn:orm:book:{}/files/figs/web/{}" . format(self.book_id, image_name), stream=True)
             # response = self.requests_provider("https://learning.oreilly.com/api/v2/epubs/urn:orm:book:{}/files/{}" . format(self.book_id, image_name), stream=True)
             # response = self.requests_provider("https://learning.oreilly.com/api/v2/epubs/urn:orm:book:{}/files/graphics/{}" . format(self.book_id, image_name), stream=True)
-            imgNameList = image_name.split('_')[:4]
-            imgNameList.append('Chapter')
-            image_name_path = "_".join(imgNameList)
-            self.display.info("Image name : " + image_name_path + " , original : " + image_name)
-            response = self.requests_provider("https://learning.oreilly.com/api/v2/epubs/urn:orm:book:{}/files/images/{}/{}" . format(self.book_id, image_name_path, image_name), stream=True)
+
+            # imgNameList = image_name.split('_')[:4]
+            # imgNameList.append('Chapter')
+            # image_name_path = "_".join(imgNameList)
+            # self.display.info("Image name : " + image_name_path + " , original : " + image_name)
+            # response = self.requests_provider("https://learning.oreilly.com/api/v2/epubs/urn:orm:book:{}/{}/{}/{}" . format(self.book_id, self.asset, image_name_path, image_name), stream=True)
+            image_url = "https://learning.oreilly.com/api/v2/epubs/urn:orm:book:{}/{}/{}" . format(self.book_id, self.asset, image_name)
+            self.display.info(image_url)
+            response = self.requests_provider(image_url, stream=True)
             if response == 0:
                 self.display.error("Error trying to retrieve this image: %s\n    From: %s" % (image_name, url))
                 return
@@ -1085,6 +1090,10 @@ if __name__ == "__main__":
     arguments.add_argument(
         "--preserve-log", dest="log", action='store_true', help="Leave the `info_XXXXXXXXXXXXX.log`"
                                                                 " file even if there isn't any error."
+    )
+    arguments.add_argument(
+        "--asset", dest="asset", action='store', default="files/assets", help="Default to files/assets"
+                                                                " check before download."
     )
     arguments.add_argument("--help", action="help", default=argparse.SUPPRESS, help='Show this help message.')
     arguments.add_argument(
