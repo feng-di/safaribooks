@@ -882,7 +882,11 @@ class SafariBooks:
             # response = self.requests_provider("https://learning.oreilly.com/api/v2/epubs/urn:orm:book:{}/files/figs/web/{}" . format(self.book_id, image_name), stream=True)
             # response = self.requests_provider("https://learning.oreilly.com/api/v2/epubs/urn:orm:book:{}/files/{}" . format(self.book_id, image_name), stream=True)
             # response = self.requests_provider("https://learning.oreilly.com/api/v2/epubs/urn:orm:book:{}/files/graphics/{}" . format(self.book_id, image_name), stream=True)
-            response = self.requests_provider("https://learning.oreilly.com/api/v2/epubs/urn:orm:book:{}/files/assets/{}" . format(self.book_id, image_name), stream=True)
+            imgNameList = image_name.split('_')[:4]
+            imgNameList.append('Chapter')
+            image_name_path = "_".join(imgNameList)
+            self.display.info("Image name : " + image_name_path + " , original : " + image_name)
+            response = self.requests_provider("https://learning.oreilly.com/api/v2/epubs/urn:orm:book:{}/files/images/{}/{}" . format(self.book_id, image_name_path, image_name), stream=True)
             if response == 0:
                 self.display.error("Error trying to retrieve this image: %s\n    From: %s" % (image_name, url))
                 return
