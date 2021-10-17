@@ -164,3 +164,5 @@ In this case, I suggest you to convert the `EPUB` to `AZW3` with Calibre or to `
 For any kind of problem, please don't hesitate to open an issue here on *GitHub*.  
   
 *Lorenzo Di Fuccia*
+
+

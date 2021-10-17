@@ -41,6 +41,12 @@ main() {
 #        echo "debug - do process : -----${extension} # ${filename} # ${newFilename})"
         ebook-convert  ${epub} ${newFilename}
         echo -e "---> copy file to : ${BASE_DIR}${BOOKS_CONVERTED_DIR}${newFilename}\n"
+
+        if [ ! -d "${BASE_DIR}${BOOKS_CONVERTED_DIR}" ]
+        then
+          mkdir -p "${BASE_DIR}${BOOKS_CONVERTED_DIR}"
+        fi
+
         cp ${newFilename} ${BASE_DIR}${BOOKS_CONVERTED_DIR}/${newFilename}
       else
         echo "--> The directory is already converted !"

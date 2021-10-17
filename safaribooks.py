@@ -876,7 +876,12 @@ class SafariBooks:
                 self.display.images_ad_info.value = 1
 
         else:
-            response = self.requests_provider("https://learning.oreilly.com/api/v2/epubs/urn:orm:book:{}/files/assets/{}" . format(self.book_id, image_name), stream=True)
+            self.display.info("https://learning.oreilly.com/api/v2/epubs/urn:orm:book:{}/files/images/{}" . format(self.book_id, image_name));
+            # response = self.requests_provider("https://learning.oreilly.com/api/v2/epubs/urn:orm:book:{}/files/assets/{}" . format(self.book_id, image_name), stream=True)
+            # response = self.requests_provider("https://learning.oreilly.com/api/v2/epubs/urn:orm:book:{}/files/graphics/{}" . format(self.book_id, image_name), stream=True)
+            # response = self.requests_provider("https://learning.oreilly.com/api/v2/epubs/urn:orm:book:{}/files/figs/web/{}" . format(self.book_id, image_name), stream=True)
+            # response = self.requests_provider("https://learning.oreilly.com/api/v2/epubs/urn:orm:book:{}/files/{}" . format(self.book_id, image_name), stream=True)
+            response = self.requests_provider("https://learning.oreilly.com/api/v2/epubs/urn:orm:book:{}/files/OEBPS/Images/{}" . format(self.book_id, image_name), stream=True)
             if response == 0:
                 self.display.error("Error trying to retrieve this image: %s\n    From: %s" % (image_name, url))
                 return

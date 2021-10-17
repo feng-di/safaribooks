@@ -12,3 +12,38 @@ Books_CLEAR/
 cookies.json
 *.log
 *.txt
+
+
+id
+python safaribooks.py --cred "arthurill2021101@163.com:52oo526O1"      0596005652                  &&
+python safaribooks.py --cred "arthurill2021101@163.com:52oo526O1"      9781484232460               &&
+python safaribooks.py --cred "arthurill2021101@163.com:52oo526O1"      9781484259986               &&
+python safaribooks.py --cred "arthurill2021101@163.com:52oo526O1"      1565925092                  &&
+python safaribooks.py --cred "arthurill2021101@163.com:52oo526O1"                     &&
+python safaribooks.py --cred "arthurill2021101@163.com:52oo526O1"      9781800204621
+
+## file/image
+python safaribooks.py --cred "arthurill2021101@163.com:52oo526O1" 9781800563421 &&
+python safaribooks.py --cred "arthurill2021101@163.com:52oo526O1" 9781800562387 &&
+python safaribooks.py --cred "arthurill2021101@163.com:52oo526O1" 9781839210662 &&
+python safaribooks.py --cred "arthurill2021101@163.com:52oo526O1" 9781801071871 &&
+python safaribooks.py --cred "arthurill2021101@163.com:52oo526O1" 9781800568730 &&
+python safaribooks.py --cred "arthurill2021101@163.com:52oo526O1" 9781800204621
+
+python safaribooks.py --cred "arthurill2021101@163.com:52oo526O1"
+
+python safaribooks.py --cred "arthurill2021101@163.com:52oo526O1" id &&
+python safaribooks.py --cred "arthurill2021101@163.com:52oo526O1" 0596005652 &&
+python safaribooks.py --cred "arthurill2021101@163.com:52oo526O1" 9781484232460 &&
+python safaribooks.py --cred "arthurill2021101@163.com:52oo526O1" 9781484259986 &&
+python safaribooks.py --cred "arthurill2021101@163.com:52oo526O1" 9781119690924
+
+https://learning.oreilly.com/api/v2/epubs/urn:orm:book:9781801079310/files/Images/B17194_08_02.png
+https://learning.oreilly.com/api/v2/epubs/urn:orm:book:9781801079310/files/images/B17194_02_02.png
+
+
+                       id
+0596005652
+9781484232460
+9781484259986
+1565925092
