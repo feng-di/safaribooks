@@ -381,7 +381,8 @@ class SafariBooks:
 
         self.cover = False
         self.get()
-        if not self.cover:
+
+        if True:
             self.cover = self.get_default_cover() if "cover" in self.book_info else False
             cover_html = self.parse_html(
                 html.fromstring("<div id=\"sbo-rt-content\"><img src=\"Images/{0}\"></div>".format(self.cover)), True
@@ -573,7 +574,8 @@ class SafariBooks:
         return result + (self.get_book_chapters(page + 1) if response["next"] else [])
 
     def get_default_cover(self):
-        response = self.requests_provider(self.book_info["cover"], stream=True)
+        cover_url = "https://learning.oreilly.com/covers/urn:orm:book:{}/800w/" . format(self.book_id)
+        response = self.requests_provider(cover_url, stream=True)
         if response == 0:
             self.display.error("Error trying to retrieve the cover: %s" % self.book_info["cover"])
             return False
@@ -890,7 +892,7 @@ class SafariBooks:
             # self.display.info("Image name : " + image_name_path + " , original : " + image_name)
             # response = self.requests_provider("https://learning.oreilly.com/api/v2/epubs/urn:orm:book:{}/{}/{}/{}" . format(self.book_id, self.asset, image_name_path, image_name), stream=True)
             image_url = "https://learning.oreilly.com/api/v2/epubs/urn:orm:book:{}/{}/{}" . format(self.book_id, self.asset, image_name)
-            self.display.info(image_url)
+            # self.display.info(image_url)
             response = self.requests_provider(image_url, stream=True)
             if response == 0:
                 self.display.error("Error trying to retrieve this image: %s\n    From: %s" % (image_name, url))
