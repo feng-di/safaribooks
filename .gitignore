@@ -12,3 +12,4 @@ Books_CLEAR/
 cookies.json
 *.log
 *.txt
+*.code-workspace
